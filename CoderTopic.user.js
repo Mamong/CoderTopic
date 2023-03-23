@@ -6,14 +6,14 @@
 // @description  parse and show IT interview questions!
 // @author       Marco
 // @match        http://api.codertopic.com/itapi/questionsapi/*
-// @grant        none
+// @grant        unsafeWindow
 // ==/UserScript==
 
 (function() {
     'use strict';
 
     // Your code here...
-    var string = document.getElementsByTagName("body")[0].textContent;
+    var string = unsafeWindow.document.getElementsByTagName("body")[0].textContent;
     var reg = new RegExp("\r\n", "g");//g,表示全部替换
 
     var json = JSON.parse(string);
@@ -42,7 +42,7 @@
     }
 
     var jsonString = JSON.stringify(json);
-    document.write(html);
+    unsafeWindow.document.write(html);
     //document.write(jsonString);
     //document.getElementsByTagName("body").innerHtml=jsonString;
 
